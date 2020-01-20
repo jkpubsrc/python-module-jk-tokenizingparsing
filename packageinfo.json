@@ -1,0 +1,42 @@
+{
+	"language": "python3",
+	"name": "jk_tokenizingparsing",
+	"version": "0.2020.1.20",
+	"meta": {
+		"description": "This python module provides basic classes for tokenizing and parsing.",
+		"keywords": [
+			"tokenizing",
+			"parsing"
+		],
+		"license": "Apache 2.0",
+		"development_status": "beta",
+		"authors": [
+			{
+				"name": "Jürgen Knauth",
+				"email": "pubsrc@binary-overflow.de"
+			}
+		],
+		"wiki": {
+			"documentation_page": "DevDocs:jk_tokenizingparsing",
+			"issues_page": "jk_tokenizingparsing"
+		}
+	},
+	"repository": {
+		"type": "github",
+		"user": "jkpubsrc",
+		"project": "python-module-jk-tokenizingparsing"
+	},
+	"source": {
+		"packages": [
+			"jk_tokenizingparsing",
+			"jk_tokenizingparsing.tokenmatching"
+			],
+		"extra_data_files": [
+		]
+	},
+	"requirements": {
+		"python_packages": [
+		]
+	}
+}
+

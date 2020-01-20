@@ -1,0 +1,1043 @@
+{
+	"date": "2019-07-07",
+	"generator": "JK_GenParser",
+	"tables": [
+		{
+			"on": [
+				{
+					"actions": [
+						{
+							"data": "c",
+							"id": 7
+						},
+						{
+							"id": 5
+						},
+						{
+							"data": "xb",
+							"id": 4
+						},
+						{
+							"id": 2
+						},
+						{
+							"data": 2,
+							"id": 3
+						}
+					],
+					"pattern": {
+						"charData": "\u0000",
+						"id": 3,
+						"strData": "<!--"
+					}
+				},
+				{
+					"actions": [
+						{
+							"data": "c",
+							"id": 7
+						},
+						{
+							"id": 5
+						},
+						{
+							"id": 6
+						},
+						{
+							"id": 2
+						},
+						{
+							"data": 1,
+							"id": 3
+						}
+					],
+					"pattern": {
+						"charData": "\u0000",
+						"id": 3,
+						"strData": "<!"
+					}
+				},
+				{
+					"actions": [
+						{
+							"data": "c",
+							"id": 7
+						},
+						{
+							"data": "e",
+							"id": 4
+						},
+						{
+							"id": 5
+						},
+						{
+							"id": 2
+						},
+						{
+							"data": 4,
+							"id": 3
+						}
+					],
+					"pattern": {
+						"charData": "\u0000",
+						"id": 3,
+						"strData": "</"
+					}
+				},
+				{
+					"actions": [
+						{
+							"data": "c",
+							"id": 7
+						},
+						{
+							"data": "b",
+							"id": 4
+						},
+						{
+							"id": 5
+						},
+						{
+							"id": 2
+						},
+						{
+							"data": 3,
+							"id": 3
+						}
+					],
+					"pattern": {
+						"charData": "\u0000",
+						"id": 3,
+						"strData": "<"
+					}
+				}
+			],
+			"onEOS": [
+				{
+					"data": "c",
+					"id": 7
+				},
+				{
+					"data": "eos",
+					"id": 11
+				}
+			],
+			"onOther": [
+				{
+					"id": 6
+				},
+				{
+					"id": 2
+				}
+			],
+			"tableID": 0,
+			"tableName": "CONTENT"
+		},
+		{
+			"on": [
+				{
+					"actions": [
+						{
+							"id": 6
+						},
+						{
+							"data": "x",
+							"id": 7
+						},
+						{
+							"id": 5
+						},
+						{
+							"id": 2
+						},
+						{
+							"data": 0,
+							"id": 3
+						}
+					],
+					"pattern": {
+						"charData": "\u0000",
+						"id": 3,
+						"strData": ">"
+					}
+				}
+			],
+			"onEOS": [
+				{
+					"data": "T0002: Unexpected EOS in special tag! (1)",
+					"id": 1
+				}
+			],
+			"onOther": [
+				{
+					"id": 6
+				},
+				{
+					"id": 2
+				}
+			],
+			"tableID": 1,
+			"tableName": "SPECIALTAG"
+		},
+		{
+			"on": [
+				{
+					"actions": [
+						{
+							"data": "xc",
+							"id": 7
+						},
+						{
+							"id": 5
+						},
+						{
+							"data": "xf",
+							"id": 4
+						},
+						{
+							"id": 2
+						},
+						{
+							"data": 0,
+							"id": 3
+						}
+					],
+					"pattern": {
+						"charData": "\u0000",
+						"id": 3,
+						"strData": "-->"
+					}
+				}
+			],
+			"onEOS": [
+				{
+					"data": "T0007: EOS in comment! (2)",
+					"id": 1
+				}
+			],
+			"onOther": [
+				{
+					"id": 6
+				},
+				{
+					"id": 2
+				}
+			],
+			"tableID": 2,
+			"tableName": "COMMENT"
+		},
+		{
+			"on": [
+				{
+					"actions": [
+						{
+							"id": 2
+						}
+					],
+					"pattern": {
+						"charData": "\u0000",
+						"id": 2,
+						"strData": "\t\n "
+					}
+				},
+				{
+					"actions": [
+						{
+							"data": "f",
+							"id": 4
+						},
+						{
+							"id": 2
+						},
+						{
+							"data": 0,
+							"id": 3
+						}
+					],
+					"pattern": {
+						"charData": "\u0000",
+						"id": 3,
+						"strData": "/>"
+					}
+				},
+				{
+					"actions": [
+						{
+							"data": "f",
+							"id": 4
+						},
+						{
+							"id": 2
+						},
+						{
+							"data": 0,
+							"id": 3
+						}
+					],
+					"pattern": {
+						"charData": "\u0000",
+						"id": 3,
+						"strData": ">"
+					}
+				},
+				{
+					"actions": [
+						{
+							"id": 5
+						},
+						{
+							"id": 2
+						},
+						{
+							"data": 5,
+							"id": 3
+						}
+					],
+					"pattern": {
+						"charData": "\u0000",
+						"id": 3,
+						"strData": "'"
+					}
+				},
+				{
+					"actions": [
+						{
+							"id": 5
+						},
+						{
+							"id": 2
+						},
+						{
+							"data": 6,
+							"id": 3
+						}
+					],
+					"pattern": {
+						"charData": "\u0000",
+						"id": 3,
+						"strData": "\""
+					}
+				},
+				{
+					"actions": [
+						{
+							"data": "w",
+							"id": 4
+						},
+						{
+							"id": 2
+						}
+					],
+					"pattern": {
+						"charData": "\u0000",
+						"id": 4,
+						"regex": "[a-z]+://[^s\\>]*"
+					}
+				},
+				{
+					"actions": [
+						{
+							"data": "w",
+							"id": 4
+						},
+						{
+							"id": 2
+						}
+					],
+					"pattern": {
+						"charData": "\u0000",
+						"id": 4,
+						"regex": "[\\w-]+"
+					}
+				},
+				{
+					"actions": [
+						{
+							"data": "d",
+							"id": 4
+						},
+						{
+							"id": 2
+						}
+					],
+					"pattern": {
+						"charData": "\u0000",
+						"id": 2,
+						"strData": "=!"
+					}
+				}
+			],
+			"onEOS": [
+				{
+					"data": "T0003: Unexpected EOS in begin tag! (4)",
+					"id": 1
+				}
+			],
+			"onOther": [
+				{
+					"data": "T0001: Unknown error! (3)",
+					"id": 1
+				}
+			],
+			"tableID": 3,
+			"tableName": "BEGINTAG"
+		},
+		{
+			"on": [
+				{
+					"actions": [
+						{
+							"id": 2
+						}
+					],
+					"pattern": {
+						"charData": "\u0000",
+						"id": 2,
+						"strData": "\t\n "
+					}
+				},
+				{
+					"actions": [
+						{
+							"data": "f",
+							"id": 4
+						},
+						{
+							"id": 2
+						},
+						{
+							"data": 0,
+							"id": 3
+						}
+					],
+					"pattern": {
+						"charData": "\u0000",
+						"id": 3,
+						"strData": "/>"
+					}
+				},
+				{
+					"actions": [
+						{
+							"data": "f",
+							"id": 4
+						},
+						{
+							"id": 2
+						},
+						{
+							"data": 0,
+							"id": 3
+						}
+					],
+					"pattern": {
+						"charData": "\u0000",
+						"id": 3,
+						"strData": ">"
+					}
+				},
+				{
+					"actions": [
+						{
+							"data": "w",
+							"id": 4
+						},
+						{
+							"id": 2
+						}
+					],
+					"pattern": {
+						"charData": "\u0000",
+						"id": 4,
+						"regex": "[\\w-]+"
+					}
+				}
+			],
+			"onEOS": [
+				{
+					"data": "T0003: Unexpected EOS in begin tag! (5)",
+					"id": 1
+				}
+			],
+			"onOther": [
+				{
+					"id": 6
+				},
+				{
+					"id": 2
+				}
+			],
+			"tableID": 4,
+			"tableName": "ENDTAG"
+		},
+		{
+			"on": [
+				{
+					"actions": [
+						{
+							"data": "s",
+							"id": 7
+						},
+						{
+							"id": 2
+						},
+						{
+							"id": 5
+						},
+						{
+							"data": 3,
+							"id": 3
+						}
+					],
+					"pattern": {
+						"charData": "\u0000",
+						"id": 3,
+						"strData": "'"
+					}
+				},
+				{
+					"actions": [
+						{
+							"id": 2
+						},
+						{
+							"data": 7,
+							"id": 3
+						}
+					],
+					"pattern": {
+						"charData": "\u0000",
+						"id": 3,
+						"strData": "\\"
+					}
+				}
+			],
+			"onEOS": [
+				{
+					"data": "T0006: Unexpected EOS in string! (6)",
+					"id": 1
+				}
+			],
+			"onOther": [
+				{
+					"id": 6
+				},
+				{
+					"id": 2
+				}
+			],
+			"tableID": 5,
+			"tableName": "INSTRING1"
+		},
+		{
+			"on": [
+				{
+					"actions": [
+						{
+							"data": "s",
+							"id": 7
+						},
+						{
+							"id": 2
+						},
+						{
+							"id": 5
+						},
+						{
+							"data": 3,
+							"id": 3
+						}
+					],
+					"pattern": {
+						"charData": "\u0000",
+						"id": 3,
+						"strData": "\""
+					}
+				},
+				{
+					"actions": [
+						{
+							"id": 2
+						},
+						{
+							"data": 8,
+							"id": 3
+						}
+					],
+					"pattern": {
+						"charData": "\u0000",
+						"id": 3,
+						"strData": "\\"
+					}
+				}
+			],
+			"onEOS": [
+				{
+					"data": "T0006: Unexpected EOS in string! (7)",
+					"id": 1
+				}
+			],
+			"onOther": [
+				{
+					"id": 6
+				},
+				{
+					"id": 2
+				}
+			],
+			"tableID": 6,
+			"tableName": "INSTRING2"
+		},
+		{
+			"on": [
+				{
+					"actions": [
+						{
+							"function": "convert4HexToUnicode",
+							"id": 6
+						},
+						{
+							"id": 2
+						},
+						{
+							"data": 5,
+							"id": 3
+						}
+					],
+					"pattern": {
+						"charData": "\u0000",
+						"id": 4,
+						"regex": "u[0-9a-fA-F]{4}"
+					}
+				},
+				{
+					"actions": [
+						{
+							"data": "\\",
+							"id": 9
+						},
+						{
+							"id": 2
+						},
+						{
+							"data": 5,
+							"id": 3
+						}
+					],
+					"pattern": {
+						"charData": "\u0000",
+						"id": 3,
+						"strData": "\\"
+					}
+				},
+				{
+					"actions": [
+						{
+							"data": "\n",
+							"id": 9
+						},
+						{
+							"id": 2
+						},
+						{
+							"data": 5,
+							"id": 3
+						}
+					],
+					"pattern": {
+						"charData": "\u0000",
+						"id": 3,
+						"strData": "n"
+					}
+				},
+				{
+					"actions": [
+						{
+							"data": "\r",
+							"id": 9
+						},
+						{
+							"id": 2
+						},
+						{
+							"data": 5,
+							"id": 3
+						}
+					],
+					"pattern": {
+						"charData": "\u0000",
+						"id": 3,
+						"strData": "r"
+					}
+				},
+				{
+					"actions": [
+						{
+							"data": "\t",
+							"id": 9
+						},
+						{
+							"id": 2
+						},
+						{
+							"data": 5,
+							"id": 3
+						}
+					],
+					"pattern": {
+						"charData": "\u0000",
+						"id": 3,
+						"strData": "t"
+					}
+				},
+				{
+					"actions": [
+						{
+							"data": "\f",
+							"id": 9
+						},
+						{
+							"id": 2
+						},
+						{
+							"data": 5,
+							"id": 3
+						}
+					],
+					"pattern": {
+						"charData": "\u0000",
+						"id": 3,
+						"strData": "f"
+					}
+				},
+				{
+					"actions": [
+						{
+							"data": "\b",
+							"id": 9
+						},
+						{
+							"id": 2
+						},
+						{
+							"data": 5,
+							"id": 3
+						}
+					],
+					"pattern": {
+						"charData": "\u0000",
+						"id": 3,
+						"strData": "b"
+					}
+				},
+				{
+					"actions": [
+						{
+							"data": "/",
+							"id": 9
+						},
+						{
+							"id": 2
+						},
+						{
+							"data": 5,
+							"id": 3
+						}
+					],
+					"pattern": {
+						"charData": "\u0000",
+						"id": 3,
+						"strData": "/"
+					}
+				},
+				{
+					"actions": [
+						{
+							"data": "'",
+							"id": 9
+						},
+						{
+							"id": 2
+						},
+						{
+							"data": 5,
+							"id": 3
+						}
+					],
+					"pattern": {
+						"charData": "\u0000",
+						"id": 3,
+						"strData": "'"
+					}
+				},
+				{
+					"actions": [
+						{
+							"data": "\"",
+							"id": 9
+						},
+						{
+							"id": 2
+						},
+						{
+							"data": 5,
+							"id": 3
+						}
+					],
+					"pattern": {
+						"charData": "\u0000",
+						"id": 3,
+						"strData": "\""
+					}
+				}
+			],
+			"onEOS": [
+				{
+					"data": "T0006: Unexpected EOS in string! (9)",
+					"id": 1
+				}
+			],
+			"onOther": [
+				{
+					"data": "T0005: Invalid escape sequence! (8)",
+					"id": 1
+				}
+			],
+			"tableID": 7,
+			"tableName": "INSTRINGMASKED~0"
+		},
+		{
+			"on": [
+				{
+					"actions": [
+						{
+							"function": "convert4HexToUnicode",
+							"id": 6
+						},
+						{
+							"id": 2
+						},
+						{
+							"data": 6,
+							"id": 3
+						}
+					],
+					"pattern": {
+						"charData": "\u0000",
+						"id": 4,
+						"regex": "u[0-9a-fA-F]{4}"
+					}
+				},
+				{
+					"actions": [
+						{
+							"data": "\\",
+							"id": 9
+						},
+						{
+							"id": 2
+						},
+						{
+							"data": 6,
+							"id": 3
+						}
+					],
+					"pattern": {
+						"charData": "\u0000",
+						"id": 3,
+						"strData": "\\"
+					}
+				},
+				{
+					"actions": [
+						{
+							"data": "\n",
+							"id": 9
+						},
+						{
+							"id": 2
+						},
+						{
+							"data": 6,
+							"id": 3
+						}
+					],
+					"pattern": {
+						"charData": "\u0000",
+						"id": 3,
+						"strData": "n"
+					}
+				},
+				{
+					"actions": [
+						{
+							"data": "\r",
+							"id": 9
+						},
+						{
+							"id": 2
+						},
+						{
+							"data": 6,
+							"id": 3
+						}
+					],
+					"pattern": {
+						"charData": "\u0000",
+						"id": 3,
+						"strData": "r"
+					}
+				},
+				{
+					"actions": [
+						{
+							"data": "\t",
+							"id": 9
+						},
+						{
+							"id": 2
+						},
+						{
+							"data": 6,
+							"id": 3
+						}
+					],
+					"pattern": {
+						"charData": "\u0000",
+						"id": 3,
+						"strData": "t"
+					}
+				},
+				{
+					"actions": [
+						{
+							"data": "\f",
+							"id": 9
+						},
+						{
+							"id": 2
+						},
+						{
+							"data": 6,
+							"id": 3
+						}
+					],
+					"pattern": {
+						"charData": "\u0000",
+						"id": 3,
+						"strData": "f"
+					}
+				},
+				{
+					"actions": [
+						{
+							"data": "\b",
+							"id": 9
+						},
+						{
+							"id": 2
+						},
+						{
+							"data": 6,
+							"id": 3
+						}
+					],
+					"pattern": {
+						"charData": "\u0000",
+						"id": 3,
+						"strData": "b"
+					}
+				},
+				{
+					"actions": [
+						{
+							"data": "/",
+							"id": 9
+						},
+						{
+							"id": 2
+						},
+						{
+							"data": 6,
+							"id": 3
+						}
+					],
+					"pattern": {
+						"charData": "\u0000",
+						"id": 3,
+						"strData": "/"
+					}
+				},
+				{
+					"actions": [
+						{
+							"data": "'",
+							"id": 9
+						},
+						{
+							"id": 2
+						},
+						{
+							"data": 6,
+							"id": 3
+						}
+					],
+					"pattern": {
+						"charData": "\u0000",
+						"id": 3,
+						"strData": "'"
+					}
+				},
+				{
+					"actions": [
+						{
+							"data": "\"",
+							"id": 9
+						},
+						{
+							"id": 2
+						},
+						{
+							"data": 6,
+							"id": 3
+						}
+					],
+					"pattern": {
+						"charData": "\u0000",
+						"id": 3,
+						"strData": "\""
+					}
+				}
+			],
+			"onEOS": [
+				{
+					"data": "T0006: Unexpected EOS in string! (9)",
+					"id": 1
+				}
+			],
+			"onOther": [
+				{
+					"data": "T0005: Invalid escape sequence! (8)",
+					"id": 1
+				}
+			],
+			"tableID": 8,
+			"tableName": "INSTRINGMASKED~1"
+		}
+	],
+	"tokenTypes": [
+		"b",
+		"c",
+		"d",
+		"e",
+		"eos",
+		"f",
+		"s",
+		"w",
+		"x",
+		"xb",
+		"xc",
+		"xf"
+	],
+	"version": "2018-05-07"
+}

@@ -1,0 +1,188 @@
+#
+# This is a copy of a primitive version of the HTML parser from project "jk_htmlparser"
+#
+
+tokenizer {
+
+	meta {
+
+		formatVersion	= "1"
+
+	}
+
+	general {
+
+		#	a		tag attribute key
+		#	b		begin tag fragment (<)
+		#	c		content
+		#	d		delimiter (=)
+		#	e		begin tag fragment (</)
+		#	f		end tag fragment (>)
+		#	s		tag attribute value: string
+		#	w		tag attribute key or value: word
+		#	xb		comment begin
+		#	xc		comment content
+		#	xf		comment end
+		#	eos		eos
+		tokens			= b, e, f, t, a, d, w, s, c, xb, xc, xf, eos
+
+	}
+
+	errors {
+		errUnknown			= T0001, "Unknown error!"
+		errEOSInBeginTag	= T0003, "Unexpected EOS in begin tag!"
+		errEOSInEndTag		= T0004, "Unexpected EOS in end tag!"
+		errInvESCSeq		= T0005, "Invalid escape sequence!"
+		errEOSInStr			= T0006, "Unexpected EOS in string!"
+		errEOSInComment		= T0007, "EOS in comment!"
+	}
+
+	statemachine {
+
+		CONTENT {
+
+			patterns {
+				COMMENT
+				ENDTAG
+				BEGINTAG
+
+				other		=>	appendElementToBuffer(), advance()
+				eos			=>	emitBuffer("c"), emitGenerate("eos")
+			}
+
+		}
+
+
+
+		COMMENT {
+
+			condition {
+				"<!--"				=>	emitBuffer("c"), clearBuffer(), emitElement("xb"), advance()
+			}
+
+			patterns {
+				"-->"				=>	emitBuffer("xc"), clearBuffer(), emitElement("xf"), advance(), return()
+
+				other				=>	appendElementToBuffer(), advance()
+				eos					=>	error(errEOSInComment, 2)
+			}
+
+		}
+
+
+
+		BEGINTAG {
+
+			condition {
+				"<"					=>	emitBuffer("c"), emitElement("b"), clearBuffer(), advance()
+			}
+
+			patterns {
+				any"\t\n "			=>	advance()
+				"/>"				=>	emitElement("f"), advance(), return()
+				">"					=>	emitElement("f"), advance(), return()
+				INSTRING1
+				INSTRING2
+				r"[a-z]+://[^\s\\>]*"		=>	emitElement("w"), advance()
+				r"[\\w-]+"			=>	emitElement("w"), advance()
+				any"=!"				=>	emitElement("d"), advance()
+
+				other				=>	error(errUnknown, 3)
+				eos					=>	error(errEOSInBeginTag, 4)
+			}
+
+		}
+
+
+
+		ENDTAG {
+
+			condition {
+				"</"				=>	emitBuffer("c"), emitElement("e"), clearBuffer(), advance()
+			}
+
+			patterns {
+				any"\t\n "			=>	advance()
+				"/>"				=>	emitElement("f"), advance(), return()
+				">"					=>	emitElement("f"), advance(), return()
+				r"[\\w-]+"			=>	emitElement("w"), advance()
+
+				other				=>	appendElementToBuffer(), advance()
+				eos					=>	error(errEOSInBeginTag, 5)
+			}
+
+		}
+
+
+
+		INSTRING1 {
+
+			condition {
+				"\'"		=>	clearBuffer(), advance()
+			}
+
+			patterns {
+				"\'"		=>	emitBuffer("s"), advance(), clearBuffer(), return()
+				INSTRINGMASKED
+				other		=>	appendElementToBuffer(), advance()
+				eos			=>	error(errEOSInStr, 6)
+			}
+
+		}
+
+
+
+		INSTRING2 {
+
+			condition {
+				"\""		=>	clearBuffer(), advance()
+			}
+
+			patterns {
+				"\""		=>	emitBuffer("s"), advance(), clearBuffer(), return()
+				INSTRINGMASKED
+				other		=>	appendElementToBuffer(), advance()
+				eos			=>	error(errEOSInStr, 7)
+			}
+
+		}
+
+
+
+		INSTRINGMASKED {
+
+			condition {
+				"\\"		=>	advance()
+			}
+
+			patterns {
+				r"u[0-9a-fA-F]{4}"		=>	appendElementToBuffer(convert4HexToUnicode), advance(), return()
+				"\\"					=>	appendTextToBuffer("\\"), advance(), return()
+				"n"						=>	appendTextToBuffer("\n"), advance(), return()
+				"r"						=>	appendTextToBuffer("\r"), advance(), return()
+				"t"						=>	appendTextToBuffer("\t"), advance(), return()
+				"f"						=>	appendTextToBuffer("\f"), advance(), return()
+				"b"						=>	appendTextToBuffer("\b"), advance(), return()
+				"/"						=>	appendTextToBuffer("/"), advance(), return()
+				"'"						=>	appendTextToBuffer("'"), advance(), return()
+				"\""					=>	appendTextToBuffer("\""), advance(), return()
+				other		=>	error(errInvESCSeq, 8)
+				eos			=>	error(errEOSInStr, 9)
+			}
+
+		}
+
+
+
+	}
+
+}
+
+
+
+
+
+
+
+
+

@@ -1,0 +1,157 @@
+tokenizer {
+
+	meta {
+
+		formatVersion	= "1"
+
+	}
+
+	general {
+
+		#	f		float
+		#	i		int
+		#	w		word
+		#	d		delimiter
+		#	s		string
+		#	eos		eos
+		tokens			= f, i, w, d, s, eos
+
+	}
+
+	errors {
+
+		errInvESCSeq		= T0001, "Invalid escape sequence!"
+		errEOSInStr			= T0002, "Unexpected EOS in string!"
+		errTok				= T0003, "Can't tokenize!"
+		errEOSInComment		= T0004, "Unexpected EOS in block comment!"
+
+	}
+
+	statemachine {
+
+		NRM {
+
+			patterns {
+				any"\n \t"												=>	advance()
+				r"[+-]?0?\.[0-9]+([Ee][+-]?[1-9][0-9]+)?"				=>	emitElement("f"), advance()
+				r"[+-]?[1-9][0-9]*\.[0-9]+([Ee][+-]?[1-9][0-9]+)?"		=>	emitElement("f"), advance()
+				r"[+-]?[1-9][0-9]*([Ee][+-]?[1-9][0-9]+)"				=>	emitElement("f"), advance()
+				r"[+-]?[1-9][0-9]*"										=>	emitElement("i"), advance()
+				r"[+-]?0"												=>	emitElement("i"), advance()
+				INLINECOMMENT
+				INBLOCKCOMMENT
+				r"[a-zA-Z\._][a-zA-Z0-9\._-]*"							=>	emitElement("w"), advance()
+				INSTRING1
+				INSTRING2
+				any"_-+*~#'`!§$%&/()[]{}=?\\,.;:<>|"					=>	emitElement("d"), advance()
+				other		=>	error(errTok, 1)
+				eos			=>	emitGenerate("eos")
+			}
+
+		}
+
+
+
+		INLINECOMMENT {
+
+			condition {
+				r"(//|#)"	=>	advance(), clearBuffer()
+			}
+
+			patterns {
+				"\n"		=>	clearBuffer(), advance(), return()
+				other		=>	appendElementToBuffer(), advance()
+				eos			=>	clearBuffer(), return()
+			}
+
+		}
+
+
+
+		INBLOCKCOMMENT {
+
+			condition {
+				"/*"		=>	advance(), clearBuffer()
+			}
+
+			patterns {
+				"*/"		=>	clearBuffer(), advance(), return()
+				other		=>	appendElementToBuffer(), advance()
+				eos			=>	error(errEOSInComment, 2)
+			}
+
+		}
+
+
+
+		INSTRING1 {
+
+			condition {
+				"\'"		=>	advance(), clearBuffer()
+			}
+
+			patterns {
+				"\'"		=>	emitBuffer("s"), advance(), clearBuffer(), return()
+				INSTRINGMASKED
+				other		=>	appendElementToBuffer(), advance()
+				eos			=>	error(errEOSInStr, 2)
+			}
+
+		}
+
+
+
+		INSTRING2 {
+
+			condition {
+				"\""		=>	advance(), clearBuffer()
+			}
+
+			patterns {
+				"\""		=>	emitBuffer("s"), advance(), clearBuffer(), return()
+				INSTRINGMASKED
+				other		=>	appendElementToBuffer(), advance()
+				eos			=>	error(errEOSInStr, 5)
+			}
+
+		}
+
+
+
+		INSTRINGMASKED {
+
+			condition {
+				"\\"		=>	advance()
+			}
+
+			patterns {
+				r"u[0-9a-fA-F]{4}"		=>	appendElementToBuffer(convert4HexToUnicode), advance(), return()
+				"\\"					=>	appendTextToBuffer("\\"), advance(), return()
+				"n"						=>	appendTextToBuffer("\n"), advance(), return()
+				"r"						=>	appendTextToBuffer("\r"), advance(), return()
+				"t"						=>	appendTextToBuffer("\t"), advance(), return()
+				"f"						=>	appendTextToBuffer("\f"), advance(), return()
+				"b"						=>	appendTextToBuffer("\b"), advance(), return()
+				"/"						=>	appendTextToBuffer("/"), advance(), return()
+				"'"						=>	appendTextToBuffer("'"), advance(), return()
+				"\""					=>	appendTextToBuffer("\""), advance(), return()
+				other		=>	error(errInvESCSeq, 6)
+				eos			=>	error(errEOSInStr, 7)
+			}
+
+		}
+
+
+
+	}
+
+}
+
+
+
+
+
+
+
+
+
