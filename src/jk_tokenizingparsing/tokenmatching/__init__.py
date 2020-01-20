@@ -1,4 +1,4 @@
-
+﻿
 
 
 from .MatchResult import MatchResult
@@ -14,4 +14,8 @@ from .TPUnordSeq import TPUnordSeq
 from .TPAny import TPAny
 
 
+
+
+
+__version__ = "0.2020.1.20"
 

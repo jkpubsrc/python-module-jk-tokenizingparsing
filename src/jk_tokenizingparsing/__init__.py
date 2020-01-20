@@ -1,5 +1,4 @@
-#!/usr/bin/env python3
-# -*- coding: utf-8 -*-
+﻿#!/usr/bin/env python3
 
 
 from .Token import Token
@@ -26,8 +25,7 @@ fromJSON = _JSONLoader.fromJSON
 
 
 
-__version__ = "2019-03-28"
-
+__version__ = "0.2020.1.20"
 
 
 

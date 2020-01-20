@@ -21,21 +21,33 @@
 			"issues_page": "jk_tokenizingparsing"
 		}
 	},
-	"repository": {
-		"type": "github",
-		"user": "jkpubsrc",
-		"project": "python-module-jk-tokenizingparsing"
-	},
+	"repositories": [
+		{
+			"type": "github",
+			"user": "jkpubsrc",
+			"project": "python-module-jk-tokenizingparsing",
+			"devon_publish": true
+		},
+		{
+			"type": "pypy",
+			"project": "jk_tokenizingparsing",
+			"devon_publish": true
+		}
+	],
 	"source": {
 		"packages": [
 			"jk_tokenizingparsing",
 			"jk_tokenizingparsing.tokenmatching"
 			],
 		"extra_data_files": [
+		],
+		"extra_binary_files": [
 		]
 	},
 	"requirements": {
 		"python_packages": [
+		],
+		"python_packages_dev": [
 		]
 	}
 }
