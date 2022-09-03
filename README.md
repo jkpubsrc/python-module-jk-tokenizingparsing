@@ -9,7 +9,7 @@ This python module provides support to build tokenizers (and at some time in the
 Information about this module can be found here:
 
 * [github.com](https://github.com/jkpubsrc/python-module-jk-tokenizingparsing)
-* [pypi.python.org](https://pypi.python.org/pypi/jk_tokenizingparsing)
+* [pypi.org](https://pypi.org/project/jk-tokenizingparsing/)
 
 How to use this module
 ----------------------
